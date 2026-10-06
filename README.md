@@ -179,3 +179,4 @@ project
 
 If you understand just "Migration = change table, Model = use table, Seeder = insert data", you have the core idea.
 # Airbnb-Node
+# Airbnb-Node
