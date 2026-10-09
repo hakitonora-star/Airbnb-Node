@@ -1,5 +1,7 @@
-
-
+/*
+npx sequelize-cli db:migrate for up to run
+npx sequelize-cli db:migrate: undo 
+ */
 'use strict';
 
 import { QueryInterface, DataTypes } from 'sequelize';
@@ -61,11 +63,13 @@ module.exports = {
     });
 
   },
-  
+
 
   async down(queryInterface: QueryInterface) {//down → code that reverts those changes
 
-    // await queryInterface.dropTable('hotels');
+
+    await queryInterface.dropTable('hotels');
+
 
   }
 
