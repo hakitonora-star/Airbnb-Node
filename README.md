@@ -8,7 +8,9 @@ src/config/config.ts
         ↓
 dist/config/config.js
 6:npx sequelize-cli db:migrate
-7: npx sequelize-cli db:migrate: undo this is for deleting or drop table
+7: npx sequelize-cli db:migrate:
+8:npx sequelize-cli db:migration:generate -name add ratings to hotel-table
+ undo this is for deleting or drop table
 cd .. for exit
 
 

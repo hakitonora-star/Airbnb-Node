@@ -1,6 +1,7 @@
 /*
 npx sequelize-cli db:migrate for up to run
 npx sequelize-cli db:migrate: undo 
+npx sequelize-cli db:migration:generate -name add ratings to hotel-table
  */
 'use strict';
 

@@ -2,9 +2,11 @@ const path = require("path");
 
 
 module.exports = {
-    "seeders-path": path.resolve("./dist/db/seeders"),
-    "models-path": path.resolve("./dist/db/models"),
-    "migrations-path": path.resolve("./dist/db/migrations"),
+    "seeders-path": path.resolve("./src/db/seeders"),
+    "models-path": path.resolve("./src/db/models"),
+    "migrations-path": path.resolve("./src/db/migrations"),
         //  config: path.resolve("./dist/config/db.config.js"), //pehle ye tha ab neeche wali hogi 
     config: path.resolve("./src/config/sequelize.config.js"),
 };
+
+
