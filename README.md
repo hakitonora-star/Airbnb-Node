@@ -39,6 +39,8 @@ npm run dev
 10.npx sequelize-cli migration:generate --name create-hotel-table
 11.npx tsc
 12.npx sequelize-cli db:migrate
+12.npx sequelize-cli db:migrate:undo
+
 
 
 
