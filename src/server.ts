@@ -5,6 +5,8 @@ import v2Router from './routers/v2/index.router';
 import { appErrorHandler, genericErrorHandler } from './middlewares/error.middleware';
 import logger from './config/logger.config';
 import { attachCorrelationIdMiddleware } from './middlewares/correlation.middleware';
+import sequelize from './db/models/sequelize';
+// import Hotel from './db/models/hotel';
 const app = express();
 
 app.use(express.json());
@@ -26,7 +28,44 @@ app.use(appErrorHandler);
 app.use(genericErrorHandler);
 
 
-app.listen(serverConfig.PORT, () => {
+app.listen(serverConfig.PORT, async() => {
     logger.info(`Server is running on http://localhost:${serverConfig.PORT}`);
     logger.info(`Press Ctrl+C to stop the server.`);
+    await sequelize.authenticate(); // test the connection
+    logger.info("Database connected");
+/*
+    try {
+    await sequelize.authenticate(); // test the connection
+    console.log("Database connected");
+    const hotels=await Hotel.findAll();
+    logger.info('All hotels',hotels);
+    }
+    catch (error) {
+    console.error("ACTUAL ERROR:", error);
+}
+    
+
+/*
+ try {
+    await sequelize.authenticate(); // test the connection
+    console.log("Database connected");
+    const hotel = await Hotel.create({
+        name: "Hotel NEW YORK",
+        address: "123 MAIN ST,NEW YORK BLVd",
+        location: "NEW YORK",
+        rating: 4.8,
+        rating_count: 150, // all name same as in sql 
+        
+    });
+  
+
+    console.log("HOTEL CREATED:", hotel.toJSON());
+      
+} catch (error) {
+    console.error("ACTUAL ERROR:", error);
+}
+    */
+
+
+
 });

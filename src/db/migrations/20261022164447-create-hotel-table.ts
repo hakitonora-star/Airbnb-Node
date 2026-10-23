@@ -32,6 +32,11 @@ module.exports = {
 
 
       },
+      address:{
+        type:'VARCHAR(255)',
+        allowNull:false
+
+      },
       location:{
         type:'VARCHAR(255)',
         allowNull:false
