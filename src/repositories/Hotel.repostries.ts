@@ -29,15 +29,15 @@ export async function getHotelById(id:number) {
     
 }
 
-    export async function deleteHotel(id: number) {
-    const hotel = await Hotel.findByPk(id);
-    if(!hotel){
-        return null;
-    }
-    await hotel.destroy();
- logger.info(`Hotel.deleted:${hotel. name}`);
-    return hotel;
-}
+//     export async function deleteHotel(id: number) {
+//     const hotel = await Hotel.findByPk(id);
+//     if(!hotel){
+//         return null;
+//     }
+//     await hotel.destroy();
+//  logger.info(`Hotel.deleted:${hotel. name}`);
+//     return hotel;
+// }
   
 export async function updateHotel(id: number,hotelData: HOTELDTO) {
     const hotel = await Hotel.findByPk(id);
@@ -60,6 +60,25 @@ export async function updateHotel(id: number,hotelData: HOTELDTO) {
 }
 
 export async function getAllHotels() {
-    const hotels = await Hotel.findAll();
+    const hotels = await Hotel.findAll({
+        where: {
+            deleted_at: null
+        }
+    });
+
     return hotels;
+}
+
+export async function softDelete(id: number) {
+      const hotel = await Hotel.findByPk(id);
+    if(!hotel){
+        return null;
+    }
+   hotel.deleted_at=new Date();
+   await hotel.save(); //save the changes to the database 
+   logger.info(`Hotel soft deleted${hotel.id}`);
+   return true;
+
+
+    
 }

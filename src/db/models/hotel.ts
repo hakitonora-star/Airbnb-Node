@@ -1,6 +1,7 @@
 
 import { CreationOptional, InferAttributes, InferCreationAttributes, Model, } from "sequelize";
 import sequelize from "./sequelize";
+
 /*
 Both InferAttributes<Hotel> and InferCreationAttributes<Hotel> include attributes that may be required or optional. The difference is what they describe.
 class Hotel extends Model<
@@ -40,6 +41,7 @@ class Hotel extends Model <InferAttributes<Hotel>,InferCreationAttributes<Hotel>
     declare address:string;
     declare location :string;
     declare createdAt:CreationOptional<number>;
+    declare deleted_at: Date | null
     declare updatedAt:CreationOptional<number>;
     declare rating?:number;
     declare rating_count?:number;
@@ -71,6 +73,10 @@ Hotel.init({
     createdAt:{
         type:"DATE",
         defaultValue:new Date(),
+    },
+    deleted_at:{
+        type:"DATE",
+        defaultValue:null,
     },
     updatedAt:{
         type:"DATE",

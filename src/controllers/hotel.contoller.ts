@@ -1,5 +1,5 @@
 import { Request,Response ,NextFunction} from "express"
-import { createHotelServices, deleteHotelService, getAllHotelsService, getHotelByIdServices, updateHotelService } from "../Services/hotel.service"
+import { createHotelServices, getAllHotelsService, getHotelByIdServices, softDeleteHotelService, updateHotelService } from "../Services/hotel.service"
 import { StatusCodes } from "http-status-codes";
 
 export async function createHotelHandler(req:Request,res:Response,next:NextFunction){
@@ -34,17 +34,17 @@ export async function getAllHotelsHandler(req:Request,res:Response,next:NextFunc
     
     
 }
-export async function deleteHotelHandler(req:Request,res:Response,next:NextFunction) {
-const hotelResponse=await deleteHotelService(Number(req.params.id));
-    res.status(StatusCodes.ACCEPTED).json({
-        message: "Hotel deleted successfully",
-        success:true,
-        data:hotelResponse
+// export async function deleteHotelHandler(req:Request,res:Response,next:NextFunction) {
+// const hotelResponse=await deleteHotelService(Number(req.params.id));
+//     res.status(StatusCodes.ACCEPTED).json({
+//         message: "Hotel deleted successfully",
+//         success:true,
+//         data:hotelResponse
 
-    })
+//     })
     
     
-}
+// }
 export async function updateHotelHandler(req:Request,res:Response,next:NextFunction) {
     const hotelResponse=await updateHotelService(Number(req.params.id),req.body);
     res.status(StatusCodes.ACCEPTED).json({
@@ -57,3 +57,16 @@ export async function updateHotelHandler(req:Request,res:Response,next:NextFunct
     
 }
 
+
+
+export async function softdeleteHotelHandler(req:Request,res:Response,next:NextFunction) {
+const hotelResponse=await softDeleteHotelService(Number(req.params.id));
+    res.status(StatusCodes.ACCEPTED).json({
+        message: "Hotel deleted successfully",
+        success:true,
+        data:hotelResponse
+
+    })
+    
+    
+}
