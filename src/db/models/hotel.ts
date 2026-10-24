@@ -36,13 +36,13 @@ Here, you can omit id because it is declared as CreationOptional<number>.*/
 class Hotel extends Model <InferAttributes<Hotel>,InferCreationAttributes<Hotel>>{
 // all varibale name same as database table
     declare id:CreationOptional<number>;
-    declare name:String;
+    declare name:string;
     declare address:string;
     declare location :string;
     declare createdAt:CreationOptional<number>;
     declare updatedAt:CreationOptional<number>;
-    declare rating:number;
-    declare rating_count:number;
+    declare rating?:number;
+    declare rating_count?:number;
 
 }
 
@@ -80,13 +80,13 @@ Hotel.init({
     rating: {
     type: "FLOAT",
     allowNull: true,
-    defaultValue: null,
+    defaultValue: 0,
 },
 
 rating_count: {
     type: "INTEGER",
     allowNull: true,
-    defaultValue: null,
+    defaultValue: 0,
 },
 
 
