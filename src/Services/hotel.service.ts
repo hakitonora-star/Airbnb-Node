@@ -45,8 +45,8 @@ export async function updateHotelService(id:number,hotelData:HOTELDTO) {
     return hotel;
 
     
-}
-export async function getAllHotelsService() {
-    const hotels = await getAllHotels();
-    return hotels;
-}
+// }
+// export async function getAllHotelsService() {
+//     const hotels = await getAllHotels();
+//     return hotels;
+// }

@@ -59,7 +59,7 @@ export async function updateHotel(id: number,hotelData: HOTELDTO) {
     return hotel;
 }
 
-export async function getAllHotels() {
-    const hotels = await Hotel.findAll();
-    return hotels;
-}
+// export async function getAllHotels() {
+//     const hotels = await Hotel.findAll();
+//     return hotels;
+// }
