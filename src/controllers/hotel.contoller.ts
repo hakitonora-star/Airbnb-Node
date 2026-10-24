@@ -24,16 +24,16 @@ export async function getHotelByIdHandler(req:Request,res:Response,next:NextFunc
 
 }
 
-// export async function getAllHotelsHandler(req:Request,res:Response,next:NextFunction) {
-//     const hotelResponse=await getAllHotelsService();;
-//     res.status(200).json({
-//         message:hotelResponse,
-//         success:true,
+export async function getAllHotelsHandler(req:Request,res:Response,next:NextFunction) {
+    const hotelResponse=await getAllHotelsService();;
+    res.status(200).json({
+        message:hotelResponse,
+        success:true,
 
-//     })
+    })
     
     
-// }
+}
 export async function deleteHotelHandler(req:Request,res:Response,next:NextFunction) {
 const hotelResponse=await deleteHotelService(Number(req.params.id));
     res.status(StatusCodes.ACCEPTED).json({
@@ -57,12 +57,3 @@ export async function updateHotelHandler(req:Request,res:Response,next:NextFunct
     
 }
 
-export async function getAllHotelsHandler(req: Request,res: Response,next: NextFunction){
-        const hotels = await getAllHotelsService();
-        res.status(StatusCodes.OK).json({
-            message: "Hotels fetched successfully",
-            success: true,
-            data: hotels
-        });
-   
-}
