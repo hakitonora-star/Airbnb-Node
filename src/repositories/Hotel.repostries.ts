@@ -28,3 +28,38 @@ export async function getHotelById(id:number) {
     return hotel;
     
 }
+
+    export async function deleteHotel(id: number) {
+    const hotel = await Hotel.findByPk(id);
+    if(!hotel){
+        return null;
+    }
+    await hotel.destroy();
+ logger.info(`Hotel.deleted:${hotel. name}`);
+    return hotel;
+}
+  
+export async function updateHotel(id: number,hotelData: HOTELDTO) {
+    const hotel = await Hotel.findByPk(id);
+
+    if (!hotel) {
+        return null;
+    }
+
+    await hotel.update({
+        name: hotelData.name,
+        address: hotelData.address,
+        location: hotelData.location,
+        rating: hotelData.rating,
+        rating_count: hotelData.ratingCount
+    });
+
+    logger.info(`Hotel updated: ${hotel.name}`);
+
+    return hotel;
+}
+
+export async function getAllHotels() {
+    const hotels = await Hotel.findAll();
+    return hotels;
+}

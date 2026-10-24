@@ -40,6 +40,7 @@ npm run dev
 11.npx tsc
 12.npx sequelize-cli db:migrate
 12.npx sequelize-cli db:migrate:undo
+12.npm i http-status-codes for status code
 
 
 
