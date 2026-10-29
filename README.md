@@ -35,12 +35,16 @@ npm run dev
 6.npm i sequelize
 7.npm i mysql2
 8.npm i -D sequelize-cli
-9.npx sequelize-cli  init // for runcode in sequelizerc
-10.npx sequelize-cli migration:generate --name create-hotel-table
-11.npx tsc
-12.npx sequelize-cli db:migrate
-12.npx sequelize-cli db:migrate:undo
-12.npm i http-status-codes for status code
+9. cd src
+10.dont make sequelize src now
+10a.run npx sequelize-cli  init without making sequelizerc file
+11.npx sequelize-cli  init // for runcode in sequelizerc
+
+12.npx sequelize-cli migration:generate --name create-hotel-table
+13.npx tsc
+14.npx sequelize-cli db:migrate
+15.npx sequelize-cli db:migrate:undo
+16.npm i http-status-codes for status code
 
 
 
